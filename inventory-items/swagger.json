@@ -246,7 +246,7 @@
           }
         }
       },
-      "/item/list": {
+      "/item/": {
         "get": {
           "summary": "List Items",
           "tags": [
