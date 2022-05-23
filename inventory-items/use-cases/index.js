@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { escapeRegExp, isEqual } from 'lodash';
+import lodash from 'lodash';
 import exception from '../../exception/index.js';
 import schemaValidator from '../../helper/schema-validator.js';
 import getItemCollection from '../data-access/index.js';
@@ -11,6 +11,8 @@ import makeGetItemByName from './get-item-by-name.js';
 import makeDeleteItemById from './delete-item-by-id.js';
 import makeUpdateItemById from './update-item-by-id.js';
 import makeListItem from './list-item.js';
+
+const { escapeRegExp, isEqual } = lodash;
 
 const {
   NotFoundError,
