@@ -115,7 +115,7 @@
             "servers": [
               {
                 "name": "Server 1",
-                "url": "https://shopify-backend-challenge.joygohil.repl.co"
+                "url": "shopify-backend-challenge.joygohil.repl.co"
               }
             ]
           }
@@ -124,7 +124,7 @@
       },
       "x-image-uri": ""
     },
-    "host": "https://shopify-backend-challenge.joygohil.repl.co",
+    "host": "shopify-backend-challenge.joygohil.repl.co",
     "basePath": "/",
     "securityDefinitions": {},
     "schemes": [
