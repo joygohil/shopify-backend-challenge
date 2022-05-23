@@ -3,11 +3,11 @@
  * @param {*} param0
  * @returns
  */
-export default function makeAddInventoryItem({
+export default function makeAddItemController({
   moment,
   addItem,
 }) {
-  return async function addInventoryItem(httpRequest) {
+  return async function addItemController(httpRequest) {
     await addItem({
       ...httpRequest.body,
     });

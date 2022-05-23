@@ -13,6 +13,7 @@ export default function makeItemModelConnection({ mongoConnection }) {
       sizeInKg: { type: Number, required: true, default: 0 },
       quantity: { type: Number, required: true, default: 0 },
       tags: { type: String, trim: true, required: true },
+      deletionComment: { type: String, trim: true, default: null },
       createdAt: { type: Date, default: Date.now(), required: true },
       updatedAt: { type: Date, default: Date.now() },
       deletedAt: { type: Date, default: null },

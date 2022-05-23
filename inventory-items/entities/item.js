@@ -6,6 +6,7 @@ export default function buildMakeItem({ moment }) {
     quantity,
     sizeInKg,
     tags,
+    deletionComment,
     createdAt,
     updatedAt,
     deletedAt,
@@ -21,6 +22,7 @@ export default function buildMakeItem({ moment }) {
       getCreatedAtDate: () => createdAt || moment().toISOString(),
       getUpdatedAtDate: () => updatedAt || moment().toISOString(),
       getDeletedAtDate: () => deletedAt || moment().toISOString(),
+      getDeletionComment: () => deletionComment,
     });
   };
 }

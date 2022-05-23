@@ -1,0 +1,506 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "ShopifyBackendChallenge",
+      "contact": {},
+      "x-codegen-settings": {
+        "Nullify404": false,
+        "GenerateAsyncCode": true,
+        "UseMethodPrefix": false,
+        "UseModelPostfix": false,
+        "UseControllerPrefix": true,
+        "UseEnumPostfix": true,
+        "CollectParameters": false,
+        "UseConstructorsForConfig": false,
+        "UseCommonSDKLibrary": false,
+        "iOSUseAppInfoPlist": false,
+        "AndroidUseAppManifest": false,
+        "BodySerialization": 0,
+        "EnableAdditionalModelProperties": false,
+        "PreserveParameterOrder": true,
+        "AppendContentHeaders": true,
+        "iOSGenerateCoreData": false,
+        "GenerateInterfaces": false,
+        "NodeHttpClient": "NODE_REQUEST",
+        "ValidateRequiredParameters": false,
+        "JavaUsePropertiesConfig": false,
+        "Timeout": 0.0,
+        "StoreTimezoneInformation": false,
+        "EnablePHPComposerVersionString": false,
+        "EnableLogging": false,
+        "ArraySerialization": "Indexed",
+        "ModelSerializationScheme": "Json",
+        "UseExceptionPrefix": true,
+        "RunscopeEnabled": false,
+        "AndroidHttpClient": "ANDROID_OK",
+        "ObjCHttpClient": "UNIREST",
+        "CSharpHttpClient": "UNIREST",
+        "PHPHttpClient": "UNIREST",
+        "JavaHttpClient": "JAVA_OK",
+        "ParameterArrayFormat": "ParamArrayWithIndex",
+        "SecurityProtocols": [
+          "Ssl3",
+          "Tls"
+        ],
+        "GenerateTravisConfig": false,
+        "GenerateCircleConfig": false,
+        "GenerateAppveyorConfig": false,
+        "GenerateJenkinsConfig": false,
+        "EnableHttpCache": false,
+        "Retries": 0,
+        "RetryInterval": 1.0,
+        "GenerateAdvancedDocs": true,
+        "UnderscoreNumbers": true,
+        "UseSingletonPattern": true,
+        "DisableLinting": false,
+        "ApplyCustomizations": [],
+        "SortResources": false,
+        "AllowSkippingSSLCertVerification": false,
+        "DoNotSplitWords": [],
+        "EnableGlobalUserAgent": true,
+        "ReturnCompleteHttpResponse": false,
+        "GenerateModels": true,
+        "GenerateExceptions": true,
+        "IgnoreIfNullJson": false,
+        "DisableDocs": false,
+        "LiftParameterDescriptionFromCustomType": false,
+        "ThrowForHttpErrorStatusCodes": true,
+        "ResponseMapping": {
+          "Type": "Simple"
+        },
+        "ForceKeywordArgsInRuby": false,
+        "SymbolizeHashKeysInRuby": false,
+        "UsageExampleEndpoint": {
+          "Description": "",
+          "EndpointGroupName": "",
+          "EndpointName": ""
+        },
+        "IsLatestVersion": false,
+        "EnableImmutableModels": false,
+        "GenerateEnums": true,
+        "BackoffFactor": 2.0,
+        "StatusCodesToRetry": [
+          408,
+          413,
+          429,
+          500,
+          502,
+          503,
+          504,
+          521,
+          522,
+          524
+        ],
+        "RequestMethodsToRetry": [
+          "GET",
+          "PUT"
+        ],
+        "UserConfigurableRetries": true,
+        "UseEndpointMethodName": false,
+        "EncodeTemplateParameters": true,
+        "GenerateExamplesForOptionalFields": false,
+        "MultitargetDotnetVersions": false,
+        "BackoffMax": 0.0,
+        "RetryOnTimeout": true,
+        "EnableCookies": false,
+        "EnableJsonPassThroughForAny": false
+      },
+      "x-server-configuration": {
+        "default-environment": "production",
+        "default-server": "Server 1",
+        "environments": [
+          {
+            "name": "production",
+            "servers": [
+              {
+                "name": "Server 1",
+                "url": "https://shopify-backend-challenge.joygohil.repl.co"
+              }
+            ]
+          }
+        ],
+        "parameters": []
+      },
+      "x-image-uri": ""
+    },
+    "host": "https://shopify-backend-challenge.joygohil.repl.co",
+    "basePath": "/",
+    "securityDefinitions": {},
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/item": {
+        "post": {
+          "summary": "Add Inventory Item",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "AddInventoryItem",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "x-example": {
+                "name": "Pen1",
+                "category": "stationary",
+                "quantity": 1,
+                "sizeInKg": 1.5,
+                "tags": "pen, stationary"
+              },
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AddInventoryItemRequest"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "x-unitTests": [],
+          "x-operation-settings": {
+            "CollectParameters": false,
+            "AllowDynamicQueryParameters": false,
+            "AllowDynamicFormParameters": false,
+            "IsMultiContentStreaming": false
+          }
+        }
+      },
+      "/item/628806f3eb54fb852716452f": {
+        "get": {
+          "summary": "Get Inventory Item",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "GetInventoryItem",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "default": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "x-unitTests": [],
+          "x-operation-settings": {
+            "CollectParameters": false,
+            "AllowDynamicQueryParameters": false,
+            "AllowDynamicFormParameters": false,
+            "IsMultiContentStreaming": false
+          }
+        },
+        "delete": {
+          "summary": "Delete Inventory Item",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "DeleteInventoryItem",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "x-example": {
+                "deletionComment": "asas"
+              },
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/DeleteInventoryItemRequest"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "x-unitTests": [],
+          "x-operation-settings": {
+            "CollectParameters": false,
+            "AllowDynamicQueryParameters": false,
+            "AllowDynamicFormParameters": false,
+            "IsMultiContentStreaming": false
+          }
+        }
+      },
+      "/item/list": {
+        "get": {
+          "summary": "List Items",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "ListItems",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "x-example": "pen",
+              "description": ""
+            },
+            {
+              "name": "tags",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "x-example": "stationary",
+              "description": ""
+            },
+            {
+              "name": "category",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "x-example": "stationary",
+              "description": ""
+            },
+            {
+              "name": "minSize",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "x-example": 0,
+              "description": ""
+            },
+            {
+              "name": "maxSize",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "x-example": 2,
+              "description": ""
+            },
+            {
+              "name": "minQuantity",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "x-example": 0,
+              "description": ""
+            },
+            {
+              "name": "maxQuantity",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "x-example": 1,
+              "description": ""
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "x-unitTests": [],
+          "x-operation-settings": {
+            "CollectParameters": false,
+            "AllowDynamicQueryParameters": false,
+            "AllowDynamicFormParameters": false,
+            "IsMultiContentStreaming": false
+          }
+        }
+      },
+      "/item/628a95e6d1ab3b9ea54b3b6a": {
+        "put": {
+          "summary": "Update Inventory Item",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UpdateInventoryItem",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "x-example": {
+                "name": "Pen2",
+                "category": "stationary",
+                "quantity": 1,
+                "sizeInKg": 1.5,
+                "tags": "pen, stationary"
+              },
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UpdateInventoryItemRequest"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "x-unitTests": [],
+          "x-operation-settings": {
+            "CollectParameters": false,
+            "AllowDynamicQueryParameters": false,
+            "AllowDynamicFormParameters": false,
+            "IsMultiContentStreaming": false
+          }
+        }
+      },
+      "/item/undo-deletion/628806f3eb54fb852716452f": {
+        "put": {
+          "summary": "Undo Deleted Item Inventory Item",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UndoDeletedItemInventoryItem",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "default": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "x-unitTests": [],
+          "x-operation-settings": {
+            "CollectParameters": false,
+            "AllowDynamicQueryParameters": false,
+            "AllowDynamicFormParameters": false,
+            "IsMultiContentStreaming": false
+          }
+        }
+      }
+    },
+    "definitions": {
+      "AddInventoryItemRequest": {
+        "title": "AddInventoryItemRequest",
+        "example": {
+          "name": "Pen1",
+          "category": "stationary",
+          "quantity": 1,
+          "sizeInKg": 1.5,
+          "tags": "pen, stationary"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sizeInKg": {
+            "type": "number",
+            "format": "double"
+          },
+          "tags": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "category",
+          "quantity",
+          "sizeInKg",
+          "tags"
+        ]
+      },
+      "UpdateInventoryItemRequest": {
+        "title": "UpdateInventoryItemRequest",
+        "example": {
+          "name": "Pen2",
+          "category": "stationary",
+          "quantity": 1,
+          "sizeInKg": 1.5,
+          "tags": "pen, stationary"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sizeInKg": {
+            "type": "number",
+            "format": "double"
+          },
+          "tags": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "category",
+          "quantity",
+          "sizeInKg",
+          "tags"
+        ]
+      },
+      "DeleteInventoryItemRequest": {
+        "title": "DeleteInventoryItemRequest",
+        "example": {
+          "deletionComment": "asas"
+        },
+        "type": "object",
+        "properties": {
+          "deletionComment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "deletionComment"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }

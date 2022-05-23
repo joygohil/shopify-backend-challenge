@@ -3,14 +3,13 @@
  * @param {*} param0
  * @returns
  */
-export default function makeDeleteItemByIdController({
+export default function makeUndoDeletedItemByIdController({
   moment,
-  deleteItemById,
+  undoDeletedItemById,
 }) {
-  return async function deleteItemByIdController(httpRequest) {
-    await deleteItemById({
+  return async function undoDeletedItemByIdController(httpRequest) {
+    await undoDeletedItemById({
       ...httpRequest.params,
-      ...httpRequest.body,
     });
     return {
       statusCode: 200,

@@ -13,7 +13,7 @@ export default function makeGetItemByIdController({
     });
     return {
       statusCode: 200,
-      body: { meta: { status: 'success', timestamp: moment().toISOString() }, ...response },
+      body: { meta: { status: 'success', timestamp: moment().toISOString() }, data: { ...response } },
     };
   };
 }

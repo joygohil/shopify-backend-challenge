@@ -10,7 +10,7 @@ export default function makeGetItemById({
 }) {
   async function getItemById({ id }) {
     await schemaValidator(id, objectIdValidationSchema);
-    const dbResponse = await itemCollection.findItemById(id);
+    const dbResponse = await itemCollection.findItemById({ itemId: id, deletedAt: null });
     if (dbResponse.length === 0) {
       throw new NotFoundError('No data found.', 'NotFoundError');
     }

@@ -23,11 +23,11 @@ export default function makeItemCollection({
    * @param {*} param0
    * @returns
    */
-  async function findItemById(itemId) {
+  async function findItemById({ itemId, ...filterObj }) {
     try {
       const mongoConnection = await makeMongoConnection();
       return (await itemModel({ mongoConnection })
-        .find({ _id: itemId, deletedAt: null }).lean()).map(({
+        .find({ _id: itemId, ...filterObj }).lean()).map(({
         _id: id,
         ...otherDetails
       }) => ({
@@ -65,10 +65,32 @@ export default function makeItemCollection({
       throw new InternalServerError('Something went wrong.', 'InternalDatabaseError', { ErrorName, ErrorMessage });
     }
   }
+  async function filterAllItems({
+    sortBy,
+    sortOrder,
+    ...filterQuery
+  }) {
+    const sortObject = {};
+    sortObject[sortOrder] = sortBy;
+    try {
+      const mongoConnection = await makeMongoConnection();
+      return (await itemModel({ mongoConnection })
+        .find({ ...filterQuery })
+        .sort({ ...sortObject })
+        .lean()).map(({
+        _id: id, name, category, tags, createdAt, updatedAt, sizeInKq, quantity,
+      }) => ({
+        id, name, category, tags, sizeInKq, quantity, createdAt, updatedAt,
+      }));
+    } catch ({ message: ErrorMessage, name: ErrorName }) {
+      throw new InternalServerError('Something went wrong.', 'InternalDatabaseError', { ErrorName, ErrorMessage });
+    }
+  }
   return Object.freeze({
     updatedItemById,
     insertItem,
     findItemById,
     findItemByName,
+    filterAllItems,
   });
 }
