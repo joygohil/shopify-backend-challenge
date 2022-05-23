@@ -11,7 +11,7 @@ export default (joi) => (joi.object({
     })
     .required()
     .label('Category'),
-  sizeInKg: joi.number().min(1).positive().precision(2)
+  sizeInKg: joi.number().min(0.01).positive().precision(2)
     .required()
     .label('Size in KG'),
   quantity: joi.number().min(1).positive().required()
