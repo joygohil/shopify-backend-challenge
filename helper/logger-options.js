@@ -1,16 +1,16 @@
-import * as winston from "winston";
+import * as winston from 'winston';
 
 const loggerOptions = {
   transports: [new winston.transports.Console()],
   format: winston.format.combine(
     winston.format.json(),
     winston.format.prettyPrint(),
-    winston.format.colorize({ all: true })
+    winston.format.colorize({ all: true }),
   ),
-  msg: "HTTP {{req.method}} {{req.url}}",
+  msg: 'HTTP {{req.method}} {{req.url}}',
   colorize: false,
   expressFormat: true,
-  ignoreRoute: function (req, res) {
+  ignoreRoute() {
     return false;
   },
 };

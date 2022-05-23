@@ -1,10 +1,12 @@
 {
   "name": "shopify-backend-challenge",
   "version": "1.0.0",
-  "description": "Shopify backend challenge",
+  "description": "Shopify backend challenge 2022",
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "lint": "eslint --max-warnings 0 ./ --cache",
+    "lint-fix": "eslint --fix",
     "test": "npm test"
   },
   "repository": {
@@ -26,11 +28,29 @@
     "url": "https://github.com/joygohil/shopify-backend-challenge/issues"
   },
   "homepage": "https://github.com/joygohil/shopify-backend-challenge#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run link"
+    }
+  },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "express-winston": "^4.2.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
+    "mongoose": "^6.3.3",
     "nanoid": "^3.3.4",
     "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-mocha-no-only": "^1.1.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.1"
   }
 }
