@@ -154,22 +154,34 @@
               "in": "body",
               "required": true,
               "x-example": {
-                "name": "Pen1",
+                "name": "Pen",
                 "category": "stationary",
                 "quantity": 1,
-                "sizeInKg": 1.5,
+                "sizeInKg": 1,
                 "tags": "pen, stationary"
               },
-              "description": "",
+              "description": "API to add item to database.",
               "schema": {
                 "$ref": "#/definitions/AddInventoryItemRequest"
               }
             }
           ],
           "responses": {
-            "default": {
-              "description": "",
+            "200": {
+              "description": "OK, Return meta",
               "headers": {}
+            },
+            "409": {
+                "description": "A item with same name already exist in database",
+                "headers": {}
+              },
+            "422": {
+                "description": "Bad Request",
+                "headers": {}
+            },
+            "500": {
+                "description": "Internal Server Error",
+                "headers": {}
             }
           },
           "x-unitTests": [],
@@ -181,9 +193,9 @@
           }
         }
       },
-      "/item/628806f3eb54fb852716452f": {
+      "/item/{id}": {
         "get": {
-          "summary": "Get Inventory Item",
+          "summary": "Get Inventory Item by ID",
           "tags": [
             "Misc"
           ],
@@ -192,12 +204,26 @@
           "produces": [
             "application/json"
           ],
-          "parameters": [],
+          "parameters": [{
+              "in": "path",
+              "name": "id",
+              "type":"string",
+              "required": true,
+              "description": "String MongoID of the item to get"
+          }],
           "responses": {
-            "default": {
-              "description": "",
-              "headers": {}
-            }
+            "200": {
+                "description": "OK, Return body and meta",
+                "headers": {}
+              },
+              "422": {
+                  "description": "Bad Request",
+                  "headers": {}
+              },
+              "500": {
+                  "description": "Internal Server Error",
+                  "headers": {}
+              }
           },
           "x-unitTests": [],
           "x-operation-settings": {
@@ -217,25 +243,38 @@
           "produces": [
             "application/json"
           ],
-          "parameters": [
-            {
+          "parameters": [{
               "name": "Body",
               "in": "body",
               "required": true,
               "x-example": {
-                "deletionComment": "asas"
+                "deletionComment": "The item is deleted because new specific items were created."
               },
               "description": "",
               "schema": {
                 "$ref": "#/definitions/DeleteInventoryItemRequest"
               }
+            },{
+                "in": "path",
+                "name": "id",
+                "type":"string",
+                "required": true,
+                "description": "String MongoID of the item to get"
             }
           ],
           "responses": {
-            "default": {
-              "description": "",
-              "headers": {}
-            }
+            "200": {
+                "description": "OK, Return meta",
+                "headers": {}
+              },
+              "422": {
+                  "description": "Bad Request",
+                  "headers": {}
+              },
+              "500": {
+                  "description": "Internal Server Error",
+                  "headers": {}
+              }
           },
           "x-unitTests": [],
           "x-operation-settings": {
@@ -244,7 +283,67 @@
             "AllowDynamicFormParameters": false,
             "IsMultiContentStreaming": false
           }
-        }
+        },
+        "put": {
+            "summary": "Update Inventory Item",
+            "tags": [
+              "Misc"
+            ],
+            "operationId": "UpdateInventoryItem",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "Body",
+                "in": "body",
+                "required": true,
+                "x-example": {
+                  "name": "Pen",
+                  "category": "stationary",
+                  "quantity": 1,
+                  "sizeInKg": 1.5,
+                  "tags": "pen, stationary"
+                },
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/UpdateInventoryItemRequest"
+                }
+              },{
+                "in": "path",
+                "name": "id",
+                "type":"string",
+                "required": true,
+                "description": "String MongoID of the item to get"
+            }
+            ],
+            "responses": {
+                "200": {
+                    "description": "OK, Return body and meta",
+                    "headers": {}
+                  },
+                  "409": {
+                      "description": "A item with same name already exist in database",
+                      "headers": {}
+                    },
+                  "422": {
+                      "description": "Bad Request",
+                      "headers": {}
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "headers": {}
+                  }
+              },
+            "x-unitTests": [],
+            "x-operation-settings": {
+              "CollectParameters": false,
+              "AllowDynamicQueryParameters": false,
+              "AllowDynamicFormParameters": false,
+              "IsMultiContentStreaming": false
+            }
+          }
       },
       "/item/": {
         "get": {
@@ -261,7 +360,7 @@
             {
               "name": "name",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "string",
               "x-example": "pen",
               "description": ""
@@ -269,7 +368,7 @@
             {
               "name": "tags",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "string",
               "x-example": "stationary",
               "description": ""
@@ -277,7 +376,7 @@
             {
               "name": "category",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "string",
               "x-example": "stationary",
               "description": ""
@@ -285,7 +384,7 @@
             {
               "name": "minSize",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "integer",
               "format": "int32",
               "x-example": 0,
@@ -294,7 +393,7 @@
             {
               "name": "maxSize",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "integer",
               "format": "int32",
               "x-example": 2,
@@ -303,7 +402,7 @@
             {
               "name": "minQuantity",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "integer",
               "format": "int32",
               "x-example": 0,
@@ -312,7 +411,7 @@
             {
               "name": "maxQuantity",
               "in": "query",
-              "required": true,
+              "required": false,
               "type": "integer",
               "format": "int32",
               "x-example": 1,
@@ -320,54 +419,14 @@
             }
           ],
           "responses": {
-            "default": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "x-unitTests": [],
-          "x-operation-settings": {
-            "CollectParameters": false,
-            "AllowDynamicQueryParameters": false,
-            "AllowDynamicFormParameters": false,
-            "IsMultiContentStreaming": false
-          }
-        }
-      },
-      "/item/628a95e6d1ab3b9ea54b3b6a": {
-        "put": {
-          "summary": "Update Inventory Item",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "UpdateInventoryItem",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "x-example": {
-                "name": "Pen2",
-                "category": "stationary",
-                "quantity": 1,
-                "sizeInKg": 1.5,
-                "tags": "pen, stationary"
+            "200": {
+                "description": "OK, Return data and meta",
+                "headers": {}
               },
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/UpdateInventoryItemRequest"
+              "500": {
+                  "description": "Internal Server Error",
+                  "headers": {}
               }
-            }
-          ],
-          "responses": {
-            "default": {
-              "description": "",
-              "headers": {}
-            }
           },
           "x-unitTests": [],
           "x-operation-settings": {
@@ -378,7 +437,7 @@
           }
         }
       },
-      "/item/undo-deletion/628806f3eb54fb852716452f": {
+      "/item/undo-deletion/{id}": {
         "put": {
           "summary": "Undo Deleted Item Inventory Item",
           "tags": [
@@ -389,12 +448,22 @@
           "produces": [
             "application/json"
           ],
-          "parameters": [],
+          "parameters": [{
+            "in": "path",
+            "name": "id",
+            "type":"string",
+            "required": true,
+            "description": "String MongoID of the item to get"
+        }],
           "responses": {
-            "default": {
-              "description": "",
-              "headers": {}
-            }
+            "200": {
+                "description": "OK, Return data and meta",
+                "headers": {}
+              },
+              "500": {
+                  "description": "Internal Server Error",
+                  "headers": {}
+              }
           },
           "x-unitTests": [],
           "x-operation-settings": {
