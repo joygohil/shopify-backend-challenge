@@ -32,7 +32,7 @@ const {
 // };
 
 router.get('/status', makeHttpCallback({ controller: getServiceStatusController }));
-router.get('/item/list/', makeHttpCallback({ controller: listItemController }));
+router.get('/item/', makeHttpCallback({ controller: listItemController }));
 router.get('/item/:id', makeHttpCallback({ controller: getItemByIdController }));
 router.post('/item/', makeHttpCallback({ controller: addItemController }));
 router.put('/item/:id', makeHttpCallback({ controller: updateItemByIdController }));

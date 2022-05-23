@@ -1,7 +1,6 @@
 import express from 'express';
 import * as expressWinston from 'express-winston';
 import cors from 'cors';
-import swaggerUi from 'swagger-ui-express';
 import loggerOptions from './helper/logger-options.js';
 import config from './config/local.js';
 import inventoryItemRouter from './inventory-items/router.js';
